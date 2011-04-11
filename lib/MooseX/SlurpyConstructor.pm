@@ -40,7 +40,7 @@ use MooseX::SlurpyConstructor::Trait::Attribute;
 
 1;
 
-# ABSTRACT: Make your object constructors blow up on unknown attributes
+# ABSTRACT: Make your object constructors collect all unknown attributes
 
 __END__
 
