@@ -178,8 +178,6 @@ print "########## InitArg\n";
         exception { $obj = InitArg->new( other => 1 ) }, undef,
         'InitArg works when given proper init_arg'
     );
-
-    print "##################### now testing immutable classes\n";
 }
 @classes;
 

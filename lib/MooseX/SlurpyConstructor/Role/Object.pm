@@ -16,11 +16,7 @@ after BUILDALL => sub {
         map  { $_->init_arg } $self->meta->get_all_attributes
     );
 
-print "### got attrs: ", Dumper(\%attrs);
-
     my @extra = sort grep { !$attrs{$_} } keys %{$params};
-
-print "### got extra attrs: ", Dumper(\@extra);
     return if not @extra;
 
     # XXX TODO: stuff all these into the slurpy attr.
@@ -32,18 +28,14 @@ print "### got extra attrs: ", Dumper(\@extra);
     # composition time.
 
     my $slurpy_attr = $self->meta->slurpy_attr;
-print "### in BUILDALL, found slurpy attr: ", ($slurpy_attr ? $slurpy_attr->name : "NOT FOUND" ), "\n";
 
     Moose->throw_error('Found extra construction arguments, but there is no \'slurpy\' attribute present!') if not $slurpy_attr;
 
     my %slurpy_values;
     @slurpy_values{@extra} = @{$params}{@extra};
 
-print "### assigning this to slurpy attr: ", Dumper( \%slurpy_values );
     $slurpy_attr->set_value( $self, \%slurpy_values );
 };
-
-use Data::Dumper;
 
 1;
 

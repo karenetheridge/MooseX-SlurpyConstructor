@@ -33,10 +33,7 @@ before attach_to_class => sub {
         ' that already has a slurpy attribute (', $meta->slurpy_attr->name, ')!')
         if $meta->slurpy_attr;
 
-print "### attaching slurpy attr ", $self->name, " to ", $meta->name, "\n";
     $meta->slurpy_attr($self);
-
-print "### now slurpy_attr on ", $meta->name, " has: ", $self, "\n";
 };
 
 1;
