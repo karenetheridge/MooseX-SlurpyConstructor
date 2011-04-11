@@ -167,7 +167,7 @@ with_immutable {
 
     is(
         exception { $obj = InitArg->new( other => 1 ) }, undef,
-        'InitArg works when given proper init_arg'
+        'InitArg works when given proper init_arg',
     );
 }
 @classes;

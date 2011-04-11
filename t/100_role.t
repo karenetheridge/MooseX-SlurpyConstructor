@@ -13,7 +13,7 @@ use Test::Deep;
     use MooseX::SlurpyConstructor;
 
     has thing  => ( is => 'rw' );
-    has slurpy => ( is => 'ro', slurpy => 1);
+    has slurpy => ( is => 'ro', slurpy => 1 );
 }
 
 {
