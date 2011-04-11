@@ -36,7 +36,7 @@ before attach_to_class => sub {
 print "### attaching slurpy attr ", $self->name, " to ", $meta->name, "\n";
     $meta->slurpy_attr($self);
 
-print "### now slurpy_attr has: ", $self, "\n";
+print "### now slurpy_attr on ", $meta->name, " has: ", $self, "\n";
 };
 
 1;
