@@ -92,13 +92,11 @@ my @classes = qw( Standard Slurpier Subclass SlurpySubclass OtherSlurpySubclass 
 with_immutable {
    my $obj;
 
-print "############ Standard\n";
     is(
         exception { $obj = Standard->new( thing => 1, bad => 99 ) }, undef,
         'standard Moose class ignores unknown params',
     );
 
-print "############ Slurpier\n";
     undef $obj;
     is(
         exception { $obj = Slurpier->new( thing => 1, bad => 99 ) },
@@ -107,7 +105,6 @@ print "############ Slurpier\n";
     );
     cmp_deeply($obj->slurpy, { bad => 99 }, 'slurpy attr grabs unknown param');
 
-print "############ Subclass\n";
     undef $obj;
     is(
         exception { $obj = Subclass->new( thing => 1, size => 'large' ) }, undef,
@@ -121,7 +118,6 @@ print "############ Subclass\n";
     );
     cmp_deeply($obj->slurpy, { bad => 98 }, 'slurpy attr grabs unknown param');
 
-print "############ SlurpySubclass\n";
     undef $obj;
     is(
         exception { $obj = SlurpySubclass->new( thing => 1, size => 'large', ) }, undef,
@@ -135,8 +131,6 @@ print "############ SlurpySubclass\n";
     );
     cmp_deeply($obj->slurpy, { bad => 98 }, 'slurpy attr grabs unknown param');
 
-print "########### OtherSlurpySubclass\n";
-# this requires around subclass => sub {} in the metaclass trait, see Strict.
     undef $obj;
     is(
         exception { $obj = OtherSlurpySubclass->new( thing => 1, size => 'large', ) }, undef,
@@ -149,7 +143,6 @@ print "########### OtherSlurpySubclass\n";
     );
     cmp_deeply($obj->slurpy, { bad => 99 }, 'slurpy attr grabs unknown param');
 
-print "########## Tricky\n";
     undef $obj;
     is(
         exception { $obj = Tricky->new( thing => 1, spy => 99 ) }, undef,
@@ -165,12 +158,11 @@ print "########## Tricky\n";
     cmp_deeply($obj->slurpy, { agent => 99 }, 'slurpy attr had nothing to grab');
 
 
-print "########## InitArg\n";
     undef $obj;
     $obj = InitArg->new( thing => 1 );
     cmp_deeply($obj->slurpy, { thing => 1 }, 'slurpy attr grabs unknown param');
 
-    # XXX consider whether this is the right thing to do
+    # TODO: consider whether this is the right thing to do
     $obj = InitArg->new( size => 1 );
     cmp_deeply($obj->slurpy, { size => 1 }, 'slurpy attr grabs attr with undef init_arg');
 
