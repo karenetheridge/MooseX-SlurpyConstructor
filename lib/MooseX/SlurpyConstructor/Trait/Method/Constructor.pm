@@ -58,4 +58,3 @@ C<Moose::Meta::Method::Constructor>) so that immutable classes have a
 slurpy constructor.
 
 =cut
-

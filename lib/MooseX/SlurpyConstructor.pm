@@ -43,7 +43,7 @@ use MooseX::SlurpyConstructor::Trait::Attribute;
 
 1;
 
-# ABSTRACT: Make your object constructors collect all unknown attributes
+# ABSTRACT: Make your object constructor collect all unknown attributes
 
 __END__
 
@@ -91,7 +91,7 @@ attribute as 'slurpy' will allow capturing of all unknown constructor
 arguments in the given attribute.
 
 As of Moose 1.9900, this module can also be used in a role, in which case the
-constructor of the consuming class will become strict.
+constructor of the consuming class will become slurpy.
 
 =head1 OPTIONAL RESTRICTIONS
 
@@ -141,9 +141,7 @@ are made.
 
 You can also use the normal Moose support channels - see L<Moose#GETTING_HELP>.
 
-=back
-
-=head1 AUTHOR
+=head1 HISTORY
 
 This module was originally written by Mark Morgan C<< <makk384@gmail.com> >>,
 with some bugfix patches by Christian Walde.
@@ -151,14 +149,10 @@ with some bugfix patches by Christian Walde.
 It was completely rewritten for Moose 2.0 by Karen Etheridge C<<
 <ether@cpan.org> >>, drawing heavily on MooseX::StrictConstructor.
 
-=back
-
 =head1 ACKNOWLEDGEMENTS
 
 Thanks to the folks from moose mailing list and IRC channels for
 helping me find my way around some of the Moose bits I didn't
 know of before writing this module.
-
-=back
 
 =cut

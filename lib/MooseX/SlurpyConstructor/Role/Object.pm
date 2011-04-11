@@ -39,7 +39,7 @@ after BUILDALL => sub {
 
 1;
 
-# ABSTRACT: A role which implements a strict constructor for Moose::Object
+# ABSTRACT: A role which implements a slurpy constructor for Moose::Object
 
 __END__
 
