@@ -12,17 +12,11 @@ use MooseX::SlurpyConstructor::Trait::Attribute;
 
 {
     my %meta_stuff = (
+        base_class_roles => ['MooseX::SlurpyConstructor::Role::Object'],
         class_metaroles => {
             class       => ['MooseX::SlurpyConstructor::Trait::Class'],
             attribute   => ['MooseX::SlurpyConstructor::Trait::Attribute'],
         },
-# TODO: need to figure out where to put this.
-# see MooseX::StrictConstructor and MooseX::ClassAttribute for role magic.
-#        role_metaroles  => {
-#            role        => ['MooseX::SlurpyConstructor::Trait::Class'],
-#            attribute   => ['MooseX::SlurpyConstructor::Trait::Attribute'],
-#        },
-        base_class_roles => ['MooseX::SlurpyConstructor::Role::Object'],
     );
 
     if ( Moose->VERSION < 1.9900 ) {
@@ -30,7 +24,16 @@ use MooseX::SlurpyConstructor::Trait::Attribute;
         push @{$meta_stuff{class_metaroles}{constructor}}, 'MooseX::SlurpyConstructor::Trait::Method::Constructor';
     }
     else {
-        1;
+        push @{$meta_stuff{class_metaroles}{class}},
+            'MooseX::SlurpyConstructor::Trait::Class';
+        push @{$meta_stuff{role_metaroles}{role}},
+            'MooseX::SlurpyConstructor::Trait::Role';
+        push @{$meta_stuff{role_metaroles}{application_to_class}},
+            'MooseX::SlurpyConstructor::Trait::ApplicationToClass';
+        push @{$meta_stuff{role_metaroles}{application_to_role}},
+            'MooseX::SlurpyConstructor::Trait::ApplicationToRole';
+        push @{$meta_stuff{role_metaroles}{applied_attribute}},
+            'MooseX::SlurpyConstructor::Trait::Attribute';
     }
 
     Moose::Exporter->setup_import_methods(

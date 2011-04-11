@@ -1,8 +1,7 @@
 use strict;
 use warnings;
 
-#use Test::More;
-use Test::Most 'die';
+use Test::More;
 use Test::Fatal;
 use Test::Moose qw( with_immutable );
 use Test::Deep;
