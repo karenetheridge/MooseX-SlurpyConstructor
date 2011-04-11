@@ -122,8 +122,8 @@ L<Moose::Meta::Attribute::Native::Trait::Hash>.
 =item MooseX::StrictConstructor
 
 The opposite of this module, making constructors die on unknown arguments.
-Note that if both of these are used together, SlurpyConstructor will take
-precedence and strict constructor explosions will never occour.
+If both of these are used together, StrictConstructor will always
+take precedence.
 
 This module can also be used in migrating code from vanilla Moose to
 using L<MooseX::StrictConstructor>.  That was one of my original motivations
