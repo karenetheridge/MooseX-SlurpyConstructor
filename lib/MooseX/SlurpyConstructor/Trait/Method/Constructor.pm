@@ -17,21 +17,28 @@ around '_generate_BUILDALL' => sub {
 
     my @attrs = (
         '__INSTANCE__ => 1,',
-        map { B::perlstring($_) . ' => 1,' }
-        grep {defined}
-        map  { $_->init_arg() } @{ $self->_attributes() }
+        map  { B::perlstring($_) . ' => 1,' }
+        grep { defined }
+        map  { $_->init_arg } @{ $self->_attributes }
     );
 
-    # XXX TODO
-    $source .= <<"EOF";
-my \%attrs = (@attrs);
+    my $slurpy_attr = $self->slurpy_attr;
 
-my \@bad = sort grep { ! \$attrs{\$_} }  keys \%{ \$params };
+    $source .= join('',
+        'my %attrs = (' . ( join ' ', @attrs ) . ');',
+        'my @extra = sort grep { !$attrs{$_} } keys %{ $params };',
+        'if (@extra){',
 
-if (\@bad) {
-    Moose->throw_error("Found unknown attribute(s) passed to the constructor: \@bad");
-}
-EOF
+        !$slurpy_attr
+            ? 'Moose->throw_error("Found extra construction arguments, but there is no \'slurpy\' attribute present!");'
+            : (
+                'my %slurpy_values;',
+                '@slurpy_values{@extra} = @{$params}{@extra};',
+
+                '$instance->meta->slurpy_attr->set_value( $instance, \%slurpy_values );',
+            ),
+        '}',
+    );
 
     return $source;
 };
