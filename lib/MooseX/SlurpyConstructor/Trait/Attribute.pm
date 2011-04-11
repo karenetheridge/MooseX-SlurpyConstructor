@@ -46,6 +46,8 @@ __END__
 
 =head1 DESCRIPTION
 
-TODO
+Adds the 'slurpy' attribute to attributes used in
+MooseX::SlurpyConstructor-aware classes, and checks that only one such
+attribute is present at any time.
 
 =cut
