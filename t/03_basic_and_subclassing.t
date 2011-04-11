@@ -11,7 +11,7 @@ use Test::Deep;
 
     use Moose;
 
-    has 'thing' => ( is => 'rw' );
+    has thing => ( is => 'rw' );
 }
 
 {
@@ -20,8 +20,8 @@ use Test::Deep;
     use Moose;
     use MooseX::SlurpyConstructor;
 
-    has 'thing' => ( is => 'rw' );
-    has slurpy => ( is => 'ro', slurpy => 1);
+    has thing => ( is => 'rw' );
+    has slurpy => ( is => 'ro', slurpy => 1 );
 }
 
 {
@@ -32,7 +32,7 @@ use Test::Deep;
 
     extends 'Slurpier';
 
-    has 'size' => ( is => 'rw' );
+    has size => ( is => 'rw' );
 }
 
 {
@@ -42,7 +42,7 @@ use Test::Deep;
 
     extends 'Slurpier';
 
-    has 'size' => ( is => 'rw' );
+    has size => ( is => 'rw' );
 }
 
 {
@@ -53,8 +53,8 @@ use Test::Deep;
 
     extends 'Standard';
 
-    has 'size' => ( is => 'rw' );
-    has slurpy => ( is => 'ro', slurpy => 1);
+    has size => ( is => 'rw' );
+    has slurpy => ( is => 'ro', slurpy => 1 );
 }
 
 {
@@ -63,8 +63,8 @@ use Test::Deep;
     use Moose;
     use MooseX::SlurpyConstructor;
 
-    has 'thing' => ( is => 'rw' );
-    has slurpy => ( is => 'ro', slurpy => 1);
+    has thing => ( is => 'rw' );
+    has slurpy => ( is => 'ro', slurpy => 1 );
 
     sub BUILD {
         my $self   = shift;
@@ -80,16 +80,16 @@ use Test::Deep;
     use Moose;
     use MooseX::SlurpyConstructor;
 
-    has 'thing' => ( is => 'rw', 'init_arg' => 'other' );
-    has 'size'  => ( is => 'rw', 'init_arg' => undef );
-    has slurpy => ( is => 'ro', slurpy => 1);
+    has thing => ( is => 'rw', init_arg => 'other' );
+    has size  => ( is => 'rw', init_arg => undef );
+    has slurpy => ( is => 'ro', slurpy => 1 );
 }
 
 my @classes = qw( Standard Slurpier Subclass SlurpySubclass OtherSlurpySubclass Tricky InitArg );
 
 
 with_immutable {
-   my $obj;
+    my $obj;
 
     is(
         exception { $obj = Standard->new( thing => 1, bad => 99 ) }, undef,
