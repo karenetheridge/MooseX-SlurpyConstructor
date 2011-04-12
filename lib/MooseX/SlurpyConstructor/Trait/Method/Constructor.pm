@@ -51,6 +51,8 @@ __END__
 
 =pod
 
+=head1 NAME MooseX::SlurpyConstructor::Trait::Method::Constructor
+
 =head1 DESCRIPTION
 
 This role simply wraps C<_generate_BUILDALL()> (from

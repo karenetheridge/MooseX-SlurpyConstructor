@@ -45,6 +45,8 @@ __END__
 
 =pod
 
+=head1 NAME MooseX::SlurpyConstructor::Role::Object
+
 =head1 SYNOPSIS
 
   Moose::Util::MetaRole::apply_base_class_roles(

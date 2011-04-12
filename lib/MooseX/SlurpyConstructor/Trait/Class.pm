@@ -106,6 +106,8 @@ __END__
 
 =pod
 
+=head1 NAME MooseX::SlurpyConstructor::Trait::Class
+
 =head1 DESCRIPTION
 
 This role simply wraps C<_inline_BUILDALL()> (from

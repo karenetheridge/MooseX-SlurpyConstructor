@@ -49,6 +49,8 @@ __END__
 
 =pod
 
+=head1 NAME MooseX::SlurpyConstructor
+
 =head1 SYNOPSIS
 
     package My::Class;
@@ -141,8 +143,6 @@ are made.
 
 You can also use the normal Moose support channels - see L<Moose#GETTING_HELP>.
 
-=back
-
 =head1 AUTHOR
 
 This module was originally written by Mark Morgan C<< <makk384@gmail.com> >>,
@@ -151,14 +151,10 @@ with some bugfix patches by Christian Walde.
 It was completely rewritten for Moose 2.0 by Karen Etheridge C<<
 <ether@cpan.org> >>, drawing heavily on MooseX::StrictConstructor.
 
-=back
-
 =head1 ACKNOWLEDGEMENTS
 
 Thanks to the folks from moose mailing list and IRC channels for
 helping me find my way around some of the Moose bits I didn't
 know of before writing this module.
-
-=back
 
 =cut
