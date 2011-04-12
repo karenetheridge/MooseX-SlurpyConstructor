@@ -141,7 +141,7 @@ are made.
 
 You can also use the normal Moose support channels - see L<Moose#GETTING_HELP>.
 
-=head1 AUTHOR
+=head1 HISTORY
 
 This module was originally written by Mark Morgan C<< <makk384@gmail.com> >>,
 with some bugfix patches by Christian Walde.
