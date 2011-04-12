@@ -1,4 +1,4 @@
-1.2         2011-04-11
+1.2         2011-04-12
 
 - Complete rewrite to resolve various issues (Karen Etheridge):
     - constructor is not inlined (RT#66784)
