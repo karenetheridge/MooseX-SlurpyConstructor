@@ -51,8 +51,6 @@ __END__
 
 =pod
 
-=head1 NAME MooseX::SlurpyConstructor::Trait::Method::Constructor
-
 =head1 DESCRIPTION
 
 This role simply wraps C<_generate_BUILDALL()> (from
@@ -60,4 +58,3 @@ C<Moose::Meta::Method::Constructor>) so that immutable classes have a
 slurpy constructor.
 
 =cut
-

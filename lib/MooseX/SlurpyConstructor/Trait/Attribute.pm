@@ -44,8 +44,6 @@ __END__
 
 =pod
 
-=head1 NAME MooseX::SlurpyConstructor::Trait::Attribute
-
 =head1 DESCRIPTION
 
 Adds the 'slurpy' attribute to attributes used in

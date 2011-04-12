@@ -49,8 +49,6 @@ __END__
 
 =pod
 
-=head1 NAME MooseX::SlurpyConstructor
-
 =head1 SYNOPSIS
 
     package My::Class;
@@ -93,7 +91,7 @@ attribute as 'slurpy' will allow capturing of all unknown constructor
 arguments in the given attribute.
 
 As of Moose 1.9900, this module can also be used in a role, in which case the
-constructor of the consuming class will become strict.
+constructor of the consuming class will become slurpy.
 
 =head1 OPTIONAL RESTRICTIONS
 

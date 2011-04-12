@@ -86,6 +86,8 @@ around slurpy_attr => sub {
     return;
 };
 
+# if the Object role is applied first, and then a superclass added, we just
+# lost our BUILDALL modification.
 after superclasses => sub
 {
     my $self = shift;
@@ -96,17 +98,13 @@ after superclasses => sub
     )
 };
 
-
-
 1;
 
-# ABSTRACT: A role to make immutable constructors slurpy
+# ABSTRACT: A role to make immutable constructors slurpy, and add meta-information used to find slurpy attributes
 
 __END__
 
 =pod
-
-=head1 NAME MooseX::SlurpyConstructor::Trait::Class
 
 =head1 DESCRIPTION
 
